@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<android.support.wearable.view.SwipeDismissFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/swipe_dismiss_root" >
+
+
+
+    <!--  xmlns:map="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/root_container"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context="com.example.dell.carrace.MainActivity">
+   -->
+    <!--
+    <android.support.wearable.view.DismissOverlayView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/watch_view_stub"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:rectLayout="@layout/rect_activity_main"
+    app:roundLayout="@layout/round_activity_main"
+    tools:context="com.example.dell.carrace.MainActivity"
+    tools:deviceIds="wear"
+        />
+
+    <android.support.wearable.view.DismissOverlayView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/watch_view_stub"/> -->
+    <TextView
+        android:id="@+id/test_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Swipe me to dismiss me." />
+    <Button
+        android:id="@+id/test_butt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="change"/>
+</android.support.wearable.view.SwipeDismissFrameLayout>
+
