@@ -12,6 +12,9 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Picture;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.wearable.view.SwipeDismissFrameLayout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -43,7 +46,7 @@ public class ParallaxView extends SurfaceView implements Runnable{
     Drawable car;
 
     // Holds a reference to the Activity
-    Context context;
+    final Context context;
 
     // Control the fps
     long fps =60;
@@ -71,14 +74,39 @@ public class ParallaxView extends SurfaceView implements Runnable{
     float bmRight;
     boolean bmfirst =true;
     float Yjoin;
+    public Handler mHandler;
 
     //AlertDialog.Builder alertDialogBuilder;
 
 
-    public ParallaxView(Context context, int screenWidth, int screenHeight) {
+    public ParallaxView(final Context context, int screenWidth, int screenHeight) {
         super(context);
         this.context = context;
+        mHandler = new Handler(Looper.getMainLooper()){
+            @Override
+            public void handleMessage(Message message) {
+                switch(message.what) {
+                    case 2:
+                        Toast.makeText(context, "here2", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Toast.makeText(context, "here1", Toast.LENGTH_SHORT).show();
+                        speed = (float)0.7;
+                        carobj.clear();
 
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                        dialog.setMessage("Resume").setPositiveButton("ok",new DialogInterface.OnClickListener(){
+
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                resume();
+                            }
+                        }).show();
+                        break;
+                }
+            }
+        };
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
 
@@ -251,11 +279,15 @@ public class ParallaxView extends SurfaceView implements Runnable{
     public void pause() {
 
         running = false;
+
+        mHandler.sendEmptyMessage(1);
         try {
             gameThread.join();
+
         } catch (InterruptedException e) {
             // Error
         }
+        mHandler.sendEmptyMessage(2);
     }
 
     // Make a new thread and start it

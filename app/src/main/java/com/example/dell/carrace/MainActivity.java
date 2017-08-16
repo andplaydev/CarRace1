@@ -11,6 +11,7 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,13 +51,14 @@ public class MainActivity extends Activity {
         // Make our parallaxView the view for the Activity
         //setContentView(parallaxView);
 
-        frm.addCallback(new SwipeDismissFrameLayout.Callback() {
-                                   @Override
-                                  public void onDismissed(SwipeDismissFrameLayout layout) {
-                                     layout.setVisibility(View.VISIBLE);
-                                   }
-                               }
-        );
+       // frm.addCallback(new SwipeDismissFrameLayout.Callback() {
+                    //               @Override
+                     //             public void onDismissed(SwipeDismissFrameLayout layout) {
+        //                             layout.setVisibility(View.VISIBLE);
+        //                           }
+                      //         }
+        //);
+
         //frm.addView(R.layout.activity_main);
         frm.addView(parallaxView);
 
@@ -66,7 +68,8 @@ public class MainActivity extends Activity {
     }
 
     public void change(){
-    //    frm.addView(parallaxView);
+
+        frm.addView(parallaxView);
     }
 
 

@@ -39,10 +39,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Swipe me to dismiss me." />
-    <Button
-        android:id="@+id/test_butt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="change"/>
+
 </android.support.wearable.view.SwipeDismissFrameLayout>
 
